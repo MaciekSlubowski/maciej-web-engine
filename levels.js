@@ -160,7 +160,7 @@ startArray[0] = [
 
 finishArray[0] = [
     // [PL] Portal na górze pośrodku / [EN] Portal at top-center
-    [0, 0, 980, 0, 0, 0, 120, 120, "Patterns/234.png", 50]
+    [0, 0, 980, 0, 0, 0, 120, 120, "Patterns/portal.png", 50]
 ];
     
 keysArray[0] = [
@@ -276,12 +276,12 @@ mapArray[1].push(
     [300, 90, 400, 0, 90, 0, 200, 20, "Patterns/3.jpg"],   
     [500, 90, 400, 0, 90, 0, 200, 20, "Patterns/3.jpg"],   
     
-    // Platform 3 (Corridor Entrance)
+	// Platform 3 (Corridor Entrance)
     [0, 80, -2000, 90, 0, 0, 200, 200, "Patterns/3.jpg"],   
-    [0, 90, -1700, 0, 0, 0, 200, 20, "Patterns/3.jpg"],    
-    [0, 90, -2000, 0, 0, 0, 200, 20, "Patterns/3.jpg"],    
+    [0, 90, -1900, 0, 0, 0, 200, 20, "Patterns/3.jpg"],    
+    [0, 90, -2100, 0, 0, 0, 200, 20, "Patterns/3.jpg"],    
     [-100, 90, -2000, 0, 90, 0, 200, 20, "Patterns/3.jpg"],   
-    [100, 90, -2000, 0, 90, 0, 200, 20, "Patterns/3.jpg"],   
+    [100, 90, -2000, 0, 90, 0, 200, 20, "Patterns/3.jpg"],
     
     // Platform 4 (Sandbox, Fort Right)
     [350, 80, -2300, 90, 0, 0, 200, 200, "Patterns/3.jpg"],   
@@ -297,9 +297,8 @@ startArray[1] = [ [-800, 0, 800, 0, 0] ];
 
 finishArray[1] = [ 
     // [PL] Z=-2998 by zapobiec z-fightingu / [EN] Z=-2998 to prevent z-fighting
-    [0, 0, -2998, 0, 0, 0, 120, 120, "Patterns/234.png", 50] 
+    [0, 0, -2998, 0, 0, 0, 120, 120, "Patterns/portal.png", 50] 
 ];
-
 keysArray[1] = [
     [650, 30, 850, 0, 0, 0, 50, 50, "Patterns/key.png", 50],
     [-350, 30, -2500, 0, 0, 0, 50, 50, "Patterns/key.png", 50]
@@ -481,7 +480,7 @@ startArray[2] = [
 
 finishArray[2] = [
     // [PL] Przyklejony w lewym rogu Sandboxa / [EN] Stuck in left corner of Sandbox
-    [-350, 0, -2998, 0, 0, 0, 120, 120, "Patterns/234.png", 50]
+    [-350, 0, -2998, 0, 0, 0, 120, 120, "Patterns/portal.png", 50]
 ];
 
 keysArray[2] = [

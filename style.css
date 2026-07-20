@@ -59,6 +59,51 @@
 /* ============================================================================
    2. TYPOGRAPHY & UI MENUS / TYPOGRAFIA I MENU
    ============================================================================ */
+   /* --- GAME LOGO / LOGO GRY --- */
+#game-logo {
+    position: absolute;
+    top: 40px;
+    width: 100%;
+    text-align: center;
+    z-index: 10;
+    pointer-events: none; /* Ignoruje kliknięcia myszą */
+    animation: floatingLogo 3s ease-in-out infinite; /* Lekkie unoszenie się */
+}
+
+.logo-title {
+    font-family: 'game', sans-serif;
+    font-size: 65px;
+    color: #ffffff;
+    margin: 0;
+    letter-spacing: 2px;
+    
+    /* Wielowarstwowy cień tworzący pseudo-3D pasujący do tła */
+    text-shadow: 
+        3px 3px 0 #3498db,   /* Jasnoniebieski */
+        6px 6px 0 #2980b9,   /* Średni niebieski */
+        9px 9px 0 #2c3e50,   /* Ciemny granat */
+        12px 12px 15px rgba(0, 0, 0, 0.8); /* Głęboki cień */
+}
+
+.logo-subtitle {
+    font-family: 'game', sans-serif;
+    font-size: 35px;
+    color: #00ff00; /* Neonowa zieleń nawiązująca do interfejsu */
+    margin: -10px 0 0 0;
+    letter-spacing: 6px;
+    
+    text-shadow: 
+        2px 2px 0 #008800,
+        4px 4px 0 #004400,
+        6px 6px 10px rgba(0, 0, 0, 0.8);
+}
+
+/* Animacja lewitacji logo */
+@keyframes floatingLogo {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
 
 /* [PL] Niestandardowa czcionka pikselowa / [EN] Custom pixel font */
 @font-face {
@@ -124,9 +169,9 @@
 }
 
 /* [PL] Pozycjonowanie poszczególnych przycisków / [EN] Positioning specific buttons */
-#button1 { top: 150px; } /* Start */
-#button2 { top: 300px; } /* Instructions */
-#button4 { top: 450px; } /* Rules */
+#button1 { top: 200px; } /* Start */
+#button2 { top: 350px; } /* Instructions */
+#button4 { top: 500px; } /* Rules */
 #button3, #button5 { top: 650px; } /* Back buttons */
 
 

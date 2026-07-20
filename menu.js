@@ -55,6 +55,7 @@ var totalGameTime = 0;      // [PL] Całkowity czas gry / [EN] Total game time
 var TimerGame;              // [PL] Pętla fizyki i renderu / [EN] Physics & render loop
 var TimerInterval;          // [PL] Pętla czasu gry / [EN] Game time loop
 var msgTimer;               // [PL] Timer wiadomości ekranowych / [EN] Screen message timer
+var portalMsgCooldown = false; // [PL] Flaga zapobiegająca spadkom FPS przy staniu w portalu
 
 
 // ==========================================
@@ -194,14 +195,32 @@ function loadLevel() {
  * [PL] Sprawdza warunek zwycięstwa (dotarcie do portalu).
  * [EN] Checks for win condition (reaching the portal).
  */
+// [PL] Flaga zapobiegająca spadkom FPS przy staniu w portalu
+// [EN] Flag preventing FPS drops when standing inside the portal
+var portalMsgCooldown = false;
+
+/**
+ * [PL] Sprawdza warunek zwycięstwa (dotarcie do portalu).
+ * [EN] Checks for win condition (reaching the portal).
+ */
 function checkWin() {
     let r = (finish[0][0] - pawn.x)**2 + (finish[0][1] - pawn.y)**2 + (finish[0][2] - pawn.z)**2;
     let r1 = finish[0][6]**2;
 
     if (r < r1) {
         if (keysCount < keys.length) {
-            showInGameMessage("🔒 FIND ALL KEYS (" + keysCount + "/" + keys.length + ") FIRST!", "#ffcc00");
-            pawn.z -= 80; // [PL] Odrzucenie od portalu / [EN] Push back from portal
+            
+            // [PL] Zamiast odpychania - wyświetlamy komunikat co 2 sekundy, jeśli gracz stoi w portalu
+            // [EN] Instead of pushback - show message every 2 seconds if player stands in portal
+            if (!portalMsgCooldown) {
+                showInGameMessage("🔒 FIND ALL KEYS (" + keysCount + "/" + keys.length + ") FIRST!", "#ffcc00");
+                portalMsgCooldown = true;
+                
+                setTimeout(() => { 
+                    portalMsgCooldown = false; 
+                }, 2000);
+            }
+
         } else {
             // [PL] Koniec poziomu / [EN] Level complete
             clearInterval(TimerGame);

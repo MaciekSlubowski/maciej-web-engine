@@ -767,14 +767,13 @@ function checkBulletCollision(bx, by, bz) {
 // ==========================================
 // 10. COLLECTIONS & UI / ZBIERANIE I INTERFEJS
 // ==========================================
-
 function checkCollections() {
     let radius = 60; 
 
     // Helper: Odświeżenie kolekcji / Helper: Refresh collection status
     const collectItem = (items, i, action) => {
         if (items[i][2] !== 1000000) {
-            // POPRAWKA: Liczymy tylko dystans 2D (X oraz Z), ignorując różnicę wysokości (Y)
+            // Liczymy tylko dystans 2D (X oraz Z), ignorując różnicę wysokości (Y)
             let dist = Math.hypot(pawn.x - items[i][0], pawn.z - items[i][2]);
             if (dist < radius) {
                 items[i][2] = 1000000; 
@@ -791,10 +790,12 @@ function checkCollections() {
                 let coinElement = document.getElementById("coin" + i);
                 if (coinElement) coinElement.style.display = "none";
                 
+                // Odtwarzanie dźwięku
                 if (typeof coinCollectSound !== 'undefined') {
                     coinCollectSound.currentTime = 0;
                     coinCollectSound.play();
                 }
+                
                 coinsCount++;
                 let ui = document.getElementById("coinCountUI");
                 if (ui) ui.innerText = coinsCount;
@@ -815,6 +816,13 @@ function checkCollections() {
         collectItem(keys, i, () => {
             let keyElement = document.getElementById("key" + i);
             if (keyElement) keyElement.style.display = "none";
+            
+            // Odtwarzanie dźwięku dla klucza
+            if (typeof coinCollectSound !== 'undefined') {
+                coinCollectSound.currentTime = 0;
+                coinCollectSound.play();
+            }
+            
             keysCount++;
             let ui = document.getElementById("keyCountUI");
             if (ui) ui.innerText = keysCount + " / " + keys.length;
@@ -828,10 +836,13 @@ function checkCollections() {
             collectItem(mags, i, () => {
                 let magElement = document.getElementById("mag" + i);
                 if (magElement) magElement.style.display = "none"; 
+                
+                // Odtwarzanie dźwięku dla magazynka
                 if (typeof coinCollectSound !== 'undefined') {
                     coinCollectSound.currentTime = 0;
                     coinCollectSound.play();
                 }
+                
                 spareMagazines++;
                 if (typeof updateAmmoUI === "function") updateAmmoUI();
                 if (typeof showInGameMessage === "function") showInGameMessage("MAGAZINE +1", "#00ff00", 1500); 
@@ -839,7 +850,6 @@ function checkCollections() {
         }
     }
 }
-
 function updateHealthUI() {
     let healthUI = document.getElementById("healthUI");
     if (healthUI) {
@@ -921,24 +931,26 @@ function CreateSquares(squares, string){
             newElement.style.backgroundColor = "transparent";
             newElement.style.backgroundImage = "none"; 
             
-            let start = string === "mag" ? -5 : (string === "coin" ? -2 : -1.5);
-            let end = string === "mag" ? 5 : (string === "coin" ? 2 : 1.5);
-            let step = string === "key" ? 2 : 2; // Możliwa optymalizacja kroków dla klucza
+            // OPTYMALIZACJA: Monety dostają tylko 3 warstwy: Z=-1, Z=0, Z=1.
+            // Zbliżenie ich do siebie likwiduje prześwit, a 3 warstwy nie dławią procesora.
+            let start = string === "mag" ? -4 : (string === "coin" ? -1 : -1.5);
+            let end = string === "mag" ? 4 : (string === "coin" ? 1 : 1.5);
+            let step = string === "mag" ? 2 : (string === "coin" ? 1 : 1.5); 
             
             for (let j = start; j <= end; j += step) { 
                 let layer = document.createElement("div");
                 layer.className = string === "key" ? "key-layer" : "coin-layer";
                 layer.style.backgroundImage = "url(" + squares[i][8] + ")";
                 
-                if (j === start && string === "coin") { 
-                    layer.style.transform = "translateZ(" + j + "px) rotateY(180deg)";
-                } else if (j === start || j === end) { 
-                    layer.style.transform = "translateZ(" + j + "px)";
+                // Ujednolicona transformacja bez rotateY(180deg) likwiduje "bicie" asymetrycznych grafik
+                layer.style.transform = "translateZ(" + j + "px)";
+                
+                if (j === start || j === end) { 
                     if (string.includes("key")) {
                         layer.style.filter = "drop-shadow(0 0 10px gold) drop-shadow(0 0 15px yellow)";
                     }
                 } else {
-                    layer.style.transform = "translateZ(" + j + "px)";
+                    // Środkowa warstwa jest przyciemniana, by symulować fizyczną krawędź przedmiotu
                     layer.style.filter = "brightness(0.35)"; 
                     layer.style.backgroundColor = "transparent"; 
                 }
