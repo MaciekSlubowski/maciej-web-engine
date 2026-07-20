@@ -8,9 +8,9 @@ A custom-built, pseudo-3D game engine created entirely from scratch using **Vani
 
 ## 🎓 About the Project
 
-This project was developed by **Maciej Ślubowski** as part of the Master's degree coursework in Informatics (Cloud Computing specialization) at **Akademia WIT** in Warsaw. 
+This project was developed by **Maciej Ślubowski** as part of the **"3D Game Creation for Browsers using HTML, CSS and JavaScript - ADVANCED level"** course. 
 
-Furthermore, the game engine was expanded and refined during an **Erasmus+ academic exchange program in Liepāja, Latvia**. It serves as a practical exploration of DOM manipulation, advanced CSS mathematics (`transform-style: preserve-3d`), and custom physics algorithms running entirely in the browser.
+The course was successfully completed and certified in April 2026 during an **Erasmus+** academic exchange program at **RTU Liepaja (Riga Technical University)** in Latvia. Furthermore, the engine serves as a practical exploration of DOM manipulation and custom physics algorithms, complementing Master's degree coursework in Informatics (Cloud Computing specialization) at **Akademia WIT** in Warsaw.
 
 ## ✨ Key Features
 
