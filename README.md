@@ -14,6 +14,7 @@ The course was successfully completed and certified in April 2026 during an **Er
 
 ## ✨ Key Features
 
+*   **Zero-Dependency & Supply Chain Immunity**: Built completely without NPM, external packages, or third-party libraries. This architectural choice makes the project inherently secure against software supply chain attacks.
 *   **Pure CSS 3D Rendering**: The entire 3D world, including walls, floors, collectibles, and enemies, is rendered using DOM elements and CSS 3D transforms (`translate3d`, `rotateX/Y/Z`).
 *   **Custom Physics Engine**: Features an independent physics loop handling gravity, player movement, jumping, and collision detection against 3D objects and walls.
 *   **Combat System**: 
@@ -22,9 +23,6 @@ The course was successfully completed and certified in April 2026 during an **Er
     *   Enemy AI that tracks the player, navigates the map, and deals damage with knockback effects.
 *   **Dynamic UI & HUD**: A fully functional Heads-Up Display showing health, ammo, collected coins/keys, a countdown timer, and dynamic crosshair states (recoil/reloading).
 *   **Level Management**: A modular level system containing multiple stages (e.g., *The Closed Room*, *The Sandbox*, *The Cross & Spiral*).
-*   **Resource Management**: 
-    *   Collect **Coins** to enable the Sprint ability.
-    *   Collect **Keys** to unlock the final portal and escape the level.
 
 ## 🚀 How to Play
 
