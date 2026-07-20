@@ -4,7 +4,7 @@
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 
-A custom-built, pseudo-3D game engine created entirely from scratch using **Vanilla JavaScript, HTML, and CSS 3D Transforms** — without the use of WebGL, Canvas, or any external frameworks (like Three.js). 
+A custom-built, pseudo-3D game engine created entirely from scratch using **Vanilla JavaScript, HTML, and CSS 3D Transforms** without the use of WebGL, Canvas, or any external frameworks (like Three.js). 
 
 ## 🎓 About the Project
 
