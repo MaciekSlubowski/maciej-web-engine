@@ -31,3 +31,11 @@ Since the game relies entirely on standard web technologies, there is no need fo
 1. **Clone the repository:**
    ```bash
    git clone [https://github.com/MaciekSlubowski/maciej-web-engine.git](https://github.com/MaciekSlubowski/maciej-web-engine.git)
+
+   ## 📄 License & Credits
+
+This project is open-source and provided strictly for **personal, educational, and non-commercial purposes**. You are free to explore, modify, and learn from the codebase.
+
+**Credits & Third-Party Assets:**
+*   **Typography:** The UI utilizes the "Super Pixel" font, which is licensed for **PERSONAL USE ONLY**. 
+*   **Commercial Restriction:** If you intend to fork or adapt this project for any commercial purposes, you must either replace this font or purchase a valid commercial license directly from the author at [allsuperfont.com](https://allsuperfont.com/product/super-pixel/)[cite: 9].
