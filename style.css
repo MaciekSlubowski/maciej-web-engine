@@ -498,4 +498,28 @@
     0%   { transform: scale(0.1); opacity: 1; filter: brightness(2); }
     50%  { opacity: 1; }
     100% { transform: scale(3.5); opacity: 0; filter: brightness(1); }
+	}
+	
+/* ============================================================================
+   8. LEVEL SUMMARY SCREEN (MENU 4)
+   ============================================================================ */
+#menu4 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1200px; /* Wymusza pełną szerokość gry */
+    height: 800px; /* Wymusza pełną wysokość gry */
+    z-index: 3000;
+}
+
+#menu4 > p {
+    position: absolute;
+    left: 0;
+    width: 100%; /* Rozciąga pole na całą szerokość */
+    text-align: center; /* Automatycznie i idealnie centruje tekst */
+    transform: none; /* Usuwa uciekanie na lewą stronę */
+}
+
+#menu4 .button p {
+    white-space: nowrap; /* Uniemożliwia łamanie słowa "Next Level" */
 }
